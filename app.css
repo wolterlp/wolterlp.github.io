@@ -1,0 +1,792 @@
+
+/* Contenedor  */
+    .containerPage{
+        display: grid;
+        grid-template-columns: repeat(1fr auto )
+    }
+/* Fin Contenedor  */
+
+/* Menú de navegación Flotante redes sociales */
+
+    .menu.flotante {
+        position: fixed; /* Fija el menú en la pantalla */
+        top: 50%; /* Centra verticalmente */
+        right: 20px; /* Coloca el menú a la derecha */
+        transform: translateY(-50%); /* Ajusta la posición para centrar */
+    }
+
+    .menu {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #ffffff;
+        
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .iconos {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .iconos li {
+        margin: 10px 0;
+    }
+
+    .iconos a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        transition: background-color 0.3s, transform 0.3s;
+        border-radius: 50%;
+        color: #333;
+    }
+
+    .iconos a:hover {
+        background-color: #f19203; /* Color de fondo al pasar el mouse */
+        transform: scale(1.1); /* Efecto de zoom */
+    }
+
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+        .iconos a {
+            width: 50px;
+            height: 50px;
+        }
+
+        .card {
+            width: 100px;
+            height: 160px;
+            font-size: 20px;
+        }
+    }
+/* Fin - Menú de navegación Flotante redes sociales*/
+
+
+/*efecto foto*/
+    /* Estilo del contenedor de cartas */
+    #card-stack {
+        position: relative;
+        width: 250px;
+        height: 350px;
+        perspective: 1000px;
+    }
+    
+    /* Estilo común de las cartas */
+    .card {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        transition: transform 0.6s ease, background 0.6s ease;
+        backface-visibility: hidden;
+        overflow: hidden;
+    }
+    
+    /* Estilo de las cartas traseras (Póker) */
+    .poker-card {
+        background-color: #34495e;
+        border: 2px solid #2c3e50;
+    }
+    
+    #card1 {
+        transform: rotate(-25deg) translateY(30px);
+    }
+    #card2 {
+        transform: rotate(-10deg) translateY(15px);
+    }
+    
+    /* Estilo especial para la carta de la foto */
+    .photo-card {
+        overflow: hidden;
+        transform: rotate(0deg);
+        transform: rotate(5deg) translateY(15px);
+    }
+    
+    /* Estilo de la imagen dentro de la carta */
+    .photo {
+        width: 100%;
+        height: auto;
+        transition: transform 0.6s ease, filter 0.6s ease;
+    }
+    
+    /* Efecto de agua al congelarse */
+    .photo-card:hover .photo {
+        transform: scale(1.1) saturate(0.2) brightness(0.5);
+        filter: blur(5px);
+        transition: transform 3s ease, filter 3s ease;
+    }
+    
+    /* Efecto de congelación más realista (agua) */
+    .photo-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        /*background-image: url('/storage/fotow.jpeg');*/
+        background-size: cover;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 3s ease;
+    }
+    
+    .photo-card:hover::before {
+        opacity: 1;
+    }
+    
+    /* Volver a ver la foto clara después de 3 segundos */
+    .photo-card.clear:hover .photo {
+        filter: none;
+        transform: scale(1);
+    }
+
+    
+    .subgrid2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        gap: 0.5rem;
+    }
+
+/*fin efecto foto*/
+
+
+/* Estilos básicos del documento --cambiar a segun tema*/
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-rows: auto 1fr auto; /* Header, Main y Footer */
+        min-height: 100dvh; /* Asegura que el contenido ocupe toda la altura de la ventana */
+    }
+
+    main {
+        flex-grow: 1; /* Permite que el main ocupe el espacio restante */
+        padding: 1rem;
+        background-color: var(--background-color); /* Fondo */
+    }
+
+    header {
+        background-color: var(--background-color); /* Fondo */
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 2px solid var(--highlight-color);
+    }
+
+    footer {
+        color: var(--textMenu-color); /* Texto */
+        background-color: var(--background-color); /* Fondo */
+        padding: 1rem;
+        text-align: left;
+        height: 100px; /* Altura específica para el footer */
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: center;     /* Centrar verticalmente */
+        border-top: 2px solid var(--highlight-color);
+    }
+
+    .footer-content {
+        width: 80%; /* Ocupa el 80% del ancho */
+        text-align: right; /* Alinea el contenido dentro del contenedor hacia la derecha */
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        }
+    }
+/* Fin Estilos básicos del documento */
+
+/* Estilo inicial del texto encabezado */ 
+    .typing-effect {
+        display: inline-block;
+        font-size: 4rem; /* Ajusta el tamaño del texto */
+        font-weight: 500; /* Ajusta el grosor del texto */
+        white-space: nowrap; /* Evita el ajuste de línea */
+        overflow: hidden; /* Oculta el contenido que excede el ancho */
+        border-right: .15em solid orange; /* Simula el cursor de escritura */
+        position: relative; /* Necesario para el efecto del cursor */
+        animation: typing 4s steps(50, end), blink-caret .75s step-end infinite;
+        margin: 0 auto; /* Asegura que el texto se mantenga centrado */
+       color: var(--textMenu-color); /* Texto */
+    }
+
+    .typing-effect.finished {
+        border-right: none; /* Elimina el cursor parpadeante al finalizar */
+        animation: none; /* Detiene la animación al finalizar */
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: orange; }
+    }
+
+/* Fin - movimiento del titulo como escrito */
+
+/*Estilos de animacion para lenguaje*/
+    #language-switcher button:hover svg {
+        stroke: #f19203; /* Cambia el color del icono al hacer hover */
+        color: var(--textMenu-color); /* Texto */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fdfdfd; 
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 2px;
+    }
+
+    .dropdown-content a {
+        color: #f19203;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #333;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+/*fin -Estilos de animacion para lenguaje*/
+
+/* Estilos para el color switcher de tema oscuro claro */
+
+    #color-switcher button {
+        color: var(--textMenu-color); /* Texto */
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    #color-switcher button svg {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        transition: stroke 0.3s ease;
+    }
+
+    /* Efecto hover para los botones */
+    #color-switcher button:hover {
+        transform: scale(1.1); /* Agranda el botón al hacer hover */
+    }
+
+    #color-switcher button:hover svg {
+        stroke: #f19203; /* Cambia el color del icono al hacer hover */
+    }
+/* Fin - Estilos para el color switcher de tema oscuro claro */
+
+/*menu de navegacion principal*/  /* Segunda animacion del titulo 2*/
+    .typing-effecto-two {
+        display: inline-block;
+        position: relative;
+        font-size: 24px; /* Ajusta el tamaño según sea necesario */
+        font-weight: bold; /* Ajusta el peso según sea necesario */
+        font-family: Arial, sans-serif; /* Ajusta la fuente según sea necesario */
+        overflow: hidden; /* Esconde el texto que se mueve fuera del contenedor */
+    }
+
+    .typing-effecto-two span {
+        display: inline-block;
+        transform: rotate(90deg); /* Hace que las letras estén acostadas */
+        opacity: 0; /* Inicialmente ocultas las letras */
+        transform-origin: bottom center; /* Establece el punto de rotación en la parte inferior central */
+    }
+
+    .typing-effecto-two span.show {
+        opacity: 1; /* Muestra la letra */
+        transform: rotate(0deg); /* Restaura la orientación vertical */
+        transition: transform 0.5s ease, opacity 0.5s ease; /* Transición para levantar la letra */
+    }
+
+    .typing-effecto-two.finished span {
+        transform: rotate(0deg); /* Asegura que las letras estén en posición vertical al finalizar la animación */
+    }
+
+    .typing-effecto-two:hover span {
+        animation: none; /* Reanuda la animación al pasar el mouse */
+    }
+
+    @keyframes liftUp {
+        0% {
+            transform: rotate(90deg); /* Comienza con las letras acostadas */
+            opacity: 0; /* Inicialmente ocultas las letras */
+        }
+        100% {
+            transform: rotate(0deg); /* Levanta las letras */
+            opacity: 1; /* Muestra las letras */
+        }
+    }
+
+    .titulo {
+        display: grid;
+        padding: 1rem;
+    }
+
+    .titulo h2 {
+        margin: 0; /* Elimina márgenes para una alineación más precisa */
+        font-size: 1.5em; /* Tamaño del texto para el subtítulo */
+        color: #f19203; /* Opcional: Cambia el color del subtítulo si lo deseas */
+    }
+
+    .titulo-item {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none; /* Elimina los puntos de lista */
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 1rem;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+    }
+
+/*Fin menu de navegacion principal*/  /* Fin - Segunda animacion del titulo 2*
+
+/* animacion menu body */
+    .titulo-item nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .titulo-item nav ul li {
+        display: inline-block;
+        margin: 0 15px; /* Espaciado entre enlaces */
+        position: relative;
+    }
+
+    .nav-link {
+        color: var(--textMenu-color); /* Texto */
+        text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease; /* Transición suave */
+    }
+
+    .nav-link:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -5px; /* Espaciado debajo del enlace */
+        width: 0;
+        height: 2px; /* Grosor de la línea */
+        background-color: #f19203; /* Color de la línea */
+        transition: width 0.3s ease, left 0.3s ease; /* Transición suave */
+    }
+
+    .nav-link:hover {
+        color: #f19203; /* Color al pasar el mouse */
+    }
+
+    .nav-link:hover:before {
+        width: 100%; /* Expande la línea al 100% */
+        left: 0; /* Alinea la línea con el texto */
+    }
+/* fin animacion menu body */
+
+/*body contact*/
+    #contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    #contact h2 {
+        margin-bottom: 10px;
+    }
+
+    #contact a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        font-size: 16px;
+    }
+
+    #contact svg {
+        margin-right: 8px;
+    }
+/*fin body contact*/
+
+/* Diseño responsivo */
+    /* Pantalla Grande */
+    @media (min-width: 768px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr); /* 3 columnas en pantallas grandes */
+            border: 1px solid #ccc;
+            /* border: 1px solid #ccc;*/
+
+        }
+
+        .titulo-item {
+            /* Asegura que el menú sea horizontal en pantallas grandes */
+            display: flex;
+           /* flex-direction: flex-end; /* Dirección horizontal en pantallas grandes */
+            justify-content: flex-end;
+        }
+    }
+
+    /* Pantalla pequeña */
+    @media (max-width: 767px) {
+        .grid-container {
+            grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+            justify-content: center; /* Centra el contenido */
+            border: 1px solid #ccc;
+        }
+        .typing-effect {
+            font-size: 1.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        }
+
+        .titulo-item {
+            display: flex;
+            justify-content: center; /* Centra el contenido en la dirección horizontal */
+            flex-direction: column; /* Cambia a vertical si deseas apilar elementos */
+            align-items: center; /* Asegura que los elementos dentro estén centrados */
+        }
+
+
+                /* Menú principal (vertical) */
+        nav ul:not(.iconos) {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra los elementos del menú verticalmente */
+        }
+
+        nav ul:not(.iconos) li {
+            margin: 1.5rem 0; /* Espacio vertical entre los elementos del menú */
+        }
+
+        nav ul:not(.iconos) li a {
+            display: block;
+            text-align: center;
+            padding: 2px;
+        }
+
+        .subgrid2 {
+            grid-template-columns: 1fr; /* Subcolumna apilada en pantallas pequeñas */
+        }
+
+    }
+
+/*Fin Diseño responsivo */
+
+
+/*----------------------------------------------------------------------------*/
+/* Estilos de la cuadrícula */
+
+    /* body */
+    .grid-container {
+        display: grid;
+        gap: 1rem; /* Espacio entre elementos */
+        padding: 1rem;
+    }
+
+    /* Estilos de contenedores */
+    .grid-container-titulo {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        justify-content: flex-end;
+    }
+
+    .grid-container-menu {
+        display: flex; /* Cambiar a flexbox */
+        justify-content: flex-end; /* Alinear a la derecha */
+        gap: 1rem; /* Espacio entre los elementos */
+        align-items: center;
+    }
+
+    .menu-section {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    /* Estilos para el dropdown */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropbtn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        color: var(--textMenu-color); /* Texto */
+    }
+
+    .dropbtn:hover {
+        transform: scale(1.1);
+    }
+
+/*estilos para el body---------------------desde aqui para abajo -------------------------*/
+
+:root {
+    /* Variables por defecto (modo claro) */
+    --background-color: #ffffff;
+    --column-background-color: #f9f9f9;
+    --subcolumn-background-color: #eeeeee;
+    --text-color: #000000;
+    --textMenu-color: #333;
+    --highlight-color: #f19203;
+    --text-light-color: #333333;
+    --poker-card-background: #f0f0f0;
+    --poker-card-border: #ccc;
+}
+
+.dark-mode {
+    /* Variables para modo oscuro */
+    --background-color: #222;
+    --column-background-color: #333;
+    --subcolumn-background-color: #444;
+    --text-color: #ffffff;
+    --textMenu-color: #ffffff;
+    --highlight-color: #f19203;
+    --text-light-color: #c0b8b8;
+    --poker-card-background: #34495e;
+    --poker-card-border: #2c3e50;
+}
+
+/* Contenedor principal */
+.grid-container2 {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en pantallas grandes */
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color); /* Borde */
+    background-color: var(--background-color); /* Fondo */
+    color: var(--text-color); /* Color de texto */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.col1, .col2, .col3 {
+    padding: 1rem;
+    background-color: var(--column-background-color); /* Fondo de columnas */
+    color: var(--text-color); /* Texto */
+    border-radius: 20px; /* Bordes redondeados en columnas */
+}
+
+/* Subgrid internos */
+.subgrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 columna */
+    gap: 0.5rem;
+}
+
+.subgrid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 0.5rem;
+}
+
+.subgrid4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 0.5rem;
+}
+
+.subcol {
+    background-color: var(--subcolumn-background-color); /* Fondo de subcolumnas */
+    margin-bottom: 0.5rem; 
+    padding: 1rem;
+    color: var(--text-color); /* Texto */
+    border-radius: 6px; /* Bordes redondeados en subcolumnas */
+}
+
+.subcolContact {
+    /* Ocupar todo el alto y ancho del contenedor padre */
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem; 
+    padding: 10rem;
+    color: var(--text-color); /* Texto */
+    color: var(--highlight-color); /* Color destacado para encabezados */
+
+    /* Ocupar todo el alto y ancho del contenedor padre */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Encabezados */
+.subcol h2, .subcol h3 {
+    color: var(--highlight-color); /* Color destacado para encabezados */
+}
+
+.subcol h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--highlight-color);
+    padding-bottom: 5px;
+}
+
+.subcol h3 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+/* Texto y listas */
+.subcol h4 {
+    font-size: 1.1em;
+    color: var(--text-light-color);
+}
+
+.subcol p, .subcol ul li {
+    font-size: 1em;
+    color: var(--text-light-color);
+}
+
+.tecno {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+}
+
+.tecno li {
+    color: var(--text-light-color);
+}
+
+/*Codigo*/
+
+.sources {
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+    
+
+.sources .sourcesTextoIcono {
+    display: flex;
+    align-items: center;
+}
+
+.sources .sourcesTexto {
+    font-size: 1rem;
+    color: var(--text-light-color);
+}
+
+/*Fin Codigo*/
+
+/*imagenes proyectos*/
+
+    .imagenesProyectos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .imagenesProyectos img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .imagenesProyectos img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilos del modal */
+    .modal {
+        display: none; /* Oculto por defecto */
+        position: fixed; 
+        z-index: 1000; /* Supera otros elementos */
+        padding-top: 60px; 
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo transparente */
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 100%; /* Ajusta el tamaño de la imagen */
+        max-width: 800px;
+    }
+
+    .close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #f19203;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-content {
+        animation: zoom 0.6s;
+    }
+
+    @keyframes zoom {
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+    }
+
+/*fin imagenes proyectos*/
+

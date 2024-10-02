@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* movimiento del titulo como escrito*/
 
-    
     const typingEffect = document.querySelector('.typing-effect');
     const text = typingEffect.textContent;
     typingEffect.textContent = ''; // Limpia el contenido del texto
@@ -170,53 +169,6 @@ async function loadTranslations() {
     const response = await fetch('/lang/es.json'); // Cambia esta ruta por la correcta
     return await response.json();
 }
-
-// Mapa para las traducciones cargadas
-let translations = {};
-
-// Manejar los clics en los enlaces de idioma
-document.getElementById('lang-en').addEventListener('click', function(event) {
-    event.preventDefault();
-    changeLanguage('en'); // Cambiar a inglés
-});
-
-document.getElementById('lang-es').addEventListener('click', function(event) {
-    event.preventDefault();
-    changeLanguage('es'); // Cambiar a español
-});
-
-async function changeLanguage(lang) {
-    // Cargar las traducciones si aún no se han cargado
-    if (Object.keys(translations).length === 0) {
-        translations = await loadTranslations();
-    }
-    
-    // Actualizar el contenido de la página
-    updateContent(lang);
-    
-    // Guardar el idioma en el almacenamiento local
-    localStorage.setItem('language', lang);
-}
-
-function updateContent(lang) {
-    // Cambiar el contenido basado en el idioma
-    if (lang === 'es') {
-        document.getElementById('title').innerText = translations["Welcome"];
-        document.getElementById('description').innerText = translations["This is an English description."];
-        // Agrega más elementos según sea necesario
-    } else {
-        // Restablecer a contenido en inglés
-        document.getElementById('title').innerText = "Welcome";
-        document.getElementById('description').innerText = "This is an English description.";
-    }
-}
-
-// Cargar el idioma guardado al cargar la página
-window.onload = function() {
-    const savedLanguage = localStorage.getItem('language') || 'en'; // Por defecto inglés
-    changeLanguage(savedLanguage);
-};
-
 
 
     

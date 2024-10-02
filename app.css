@@ -19,7 +19,7 @@
         position: fixed;
         top: 20px;
         right: 20px;
-        background-color: #ffffff;
+        background-color: #ffffff80;
         
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -53,34 +53,11 @@
         background-color: #f19203; /* Color de fondo al pasar el mouse */
         transform: scale(1.1); /* Efecto de zoom */
     }
-
-
-    /* Responsividad */
-    @media (max-width: 768px) {
-        .iconos a {
-            width: 50px;
-            height: 50px;
-        }
-
-        .card {
-            width: 100px;
-            height: 160px;
-            font-size: 20px;
-        }
-    }
+   
 /* Fin - Menú de navegación Flotante redes sociales*/
 
 
 /*efecto foto*/
-    /* Estilo del contenedor de cartas */
-    #card-stack {
-        position: relative;
-        width: 250px;
-        height: 350px;
-        perspective: 1000px;
-    }
-    
-    /* Estilo común de las cartas */
     .card {
         position: absolute;
         width: 100%;
@@ -141,7 +118,6 @@
         width: 100%;
         height: 100%;
         background: rgba(255, 255, 255, 0.2);
-        /*background-image: url('/storage/fotow.jpeg');*/
         background-size: cover;
         opacity: 0;
         pointer-events: none;
@@ -158,13 +134,16 @@
         transform: scale(1);
     }
 
-    
     .subgrid2 {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
+    .subgrid3 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    }
 /*fin efecto foto*/
 
 
@@ -182,11 +161,11 @@
     main {
         flex-grow: 1; /* Permite que el main ocupe el espacio restante */
         padding: 1rem;
-        background-color: var(--background-color); /* Fondo */
+        background-color: var(--background-color); 
     }
 
     header {
-        background-color: var(--background-color); /* Fondo */
+        background-color: var(--background-color); 
         color: white;
         padding: 1rem;
         text-align: center;
@@ -195,7 +174,7 @@
 
     footer {
         color: var(--textMenu-color); /* Texto */
-        background-color: var(--background-color); /* Fondo */
+        background-color: var(--background-color); 
         padding: 1rem;
         text-align: left;
         height: 100px; /* Altura específica para el footer */
@@ -208,13 +187,6 @@
     .footer-content {
         width: 80%; /* Ocupa el 80% del ancho */
         text-align: right; /* Alinea el contenido dentro del contenedor hacia la derecha */
-    }
-
-    /* Estilos responsivos */
-    @media (max-width: 768px) {
-        .grid-container {
-            grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
-        }
     }
 /* Fin Estilos básicos del documento */
 
@@ -246,7 +218,6 @@
         from, to { border-color: transparent; }
         50% { border-color: orange; }
     }
-
 /* Fin - movimiento del titulo como escrito */
 
 /*Estilos de animacion para lenguaje*/
@@ -385,7 +356,6 @@
     nav ul li a {
         text-decoration: none;
     }
-
 /*Fin menu de navegacion principal*/  /* Fin - Segunda animacion del titulo 2*
 
 /* animacion menu body */
@@ -435,7 +405,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 20px;
     }
 
     #contact h2 {
@@ -444,9 +413,8 @@
 
     #contact a {
         display: flex;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
         align-items: center;
-        text-decoration: none;
-        color: inherit;
         font-size: 16px;
     }
 
@@ -455,70 +423,6 @@
     }
 /*fin body contact*/
 
-/* Diseño responsivo */
-    /* Pantalla Grande */
-    @media (min-width: 768px) {
-        .grid-container {
-            grid-template-columns: repeat(2, 1fr); /* 3 columnas en pantallas grandes */
-            border: 1px solid #ccc;
-            /* border: 1px solid #ccc;*/
-
-        }
-
-        .titulo-item {
-            /* Asegura que el menú sea horizontal en pantallas grandes */
-            display: flex;
-           /* flex-direction: flex-end; /* Dirección horizontal en pantallas grandes */
-            justify-content: flex-end;
-        }
-    }
-
-    /* Pantalla pequeña */
-    @media (max-width: 767px) {
-        .grid-container {
-            grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
-            justify-content: center; /* Centra el contenido */
-            border: 1px solid #ccc;
-        }
-        .typing-effect {
-            font-size: 1.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-        }
-
-        .titulo-item {
-            display: flex;
-            justify-content: center; /* Centra el contenido en la dirección horizontal */
-            flex-direction: column; /* Cambia a vertical si deseas apilar elementos */
-            align-items: center; /* Asegura que los elementos dentro estén centrados */
-        }
-
-
-                /* Menú principal (vertical) */
-        nav ul:not(.iconos) {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centra los elementos del menú verticalmente */
-        }
-
-        nav ul:not(.iconos) li {
-            margin: 1.5rem 0; /* Espacio vertical entre los elementos del menú */
-        }
-
-        nav ul:not(.iconos) li a {
-            display: block;
-            text-align: center;
-            padding: 2px;
-        }
-
-        .subgrid2 {
-            grid-template-columns: 1fr; /* Subcolumna apilada en pantallas pequeñas */
-        }
-
-    }
-
-/*Fin Diseño responsivo */
-
-
-/*----------------------------------------------------------------------------*/
 /* Estilos de la cuadrícula */
 
     /* body */
@@ -569,156 +473,141 @@
 
 /*estilos para el body---------------------desde aqui para abajo -------------------------*/
 
-:root {
-    /* Variables por defecto (modo claro) */
-    --background-color: #ffffff;
-    --column-background-color: #f9f9f9;
-    --subcolumn-background-color: #eeeeee;
-    --text-color: #000000;
-    --textMenu-color: #333;
-    --highlight-color: #f19203;
-    --text-light-color: #333333;
-    --poker-card-background: #f0f0f0;
-    --poker-card-border: #ccc;
-}
+    :root {
+        /* Variables por defecto (modo claro) */
+        --background-color: #ffffff;
+        --column-background-color: #f9f9f9;
+        --subcolumn-background-color: #eeeeee;
+        --text-color: #000000;
+        --textMenu-color: #333;
+        --highlight-color: #f19203;
+        --text-light-color: #333333;
+        --poker-card-background: #f0f0f0;
+        --poker-card-border: #ccc;
+    }
 
-.dark-mode {
-    /* Variables para modo oscuro */
-    --background-color: #222;
-    --column-background-color: #333;
-    --subcolumn-background-color: #444;
-    --text-color: #ffffff;
-    --textMenu-color: #ffffff;
-    --highlight-color: #f19203;
-    --text-light-color: #c0b8b8;
-    --poker-card-background: #34495e;
-    --poker-card-border: #2c3e50;
-}
+    .dark-mode {
+        /* Variables para modo oscuro */
+        --background-color: #222;
+        --column-background-color: #333;
+        --subcolumn-background-color: #444;
+        --text-color: #ffffff;
+        --textMenu-color: #ffffff;
+        --highlight-color: #f19203;
+        --text-light-color: #c0b8b8;
+        --poker-card-background: #34495e;
+        --poker-card-border: #2c3e50;
+    }
 
 /* Contenedor principal */
-.grid-container2 {
-    display: grid;
-    grid-template-columns: 1fr; /* 1 columna en pantallas grandes */
-    gap: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--border-color); /* Borde */
-    background-color: var(--background-color); /* Fondo */
-    color: var(--text-color); /* Color de texto */
-    border-radius: 10px; /* Bordes redondeados */
-}
+    .grid-container2 {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 columna en pantallas grandes */
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--border-color); /* Borde */
+        background-color: var(--background-color); 
+        color: var(--text-color); /* Color de texto */
+        border-radius: 10px; /* Bordes redondeados */
+    }
 
-.col1, .col2, .col3 {
-    padding: 1rem;
-    background-color: var(--column-background-color); /* Fondo de columnas */
-    color: var(--text-color); /* Texto */
-    border-radius: 20px; /* Bordes redondeados en columnas */
-}
+    .col1, .col2, .col3 {
+        padding: 1rem;
+        background-color: var(--column-background-color); /* Fondo de columnas */
+        color: var(--text-color); /* Texto */
+        border-radius: 20px; /* Bordes redondeados en columnas */
+    }
 
 /* Subgrid internos */
-.subgrid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /* 1 columna */
-    gap: 0.5rem;
-}
+    .subgrid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* 1 columna */
+        gap: 0.5rem;
+    }
 
-.subgrid3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    gap: 0.5rem;
-}
+    .subgrid4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+        gap: 0.5rem;
+    }
 
-.subgrid4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    gap: 0.5rem;
-}
+    .subcol {
+        background-color: var(--subcolumn-background-color); /* Fondo de subcolumnas */
+        margin-bottom: 0.5rem; 
+        padding: 1rem;
+        color: var(--text-color); /* Texto */
+        border-radius: 6px; /* Bordes redondeados en subcolumnas */
+    }
 
-.subcol {
-    background-color: var(--subcolumn-background-color); /* Fondo de subcolumnas */
-    margin-bottom: 0.5rem; 
-    padding: 1rem;
-    color: var(--text-color); /* Texto */
-    border-radius: 6px; /* Bordes redondeados en subcolumnas */
-}
+    .subcolContact {
+        margin-bottom: 0.5rem; 
+        padding: 10rem;
+        color: var(--text-color); /* Texto */
+        color: var(--highlight-color); /* Color destacado para encabezados */
 
-.subcolContact {
-    /* Ocupar todo el alto y ancho del contenedor padre */
-    width: 100%;
-    height: 100%;
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    margin-bottom: 0.5rem; 
-    padding: 10rem;
-    color: var(--text-color); /* Texto */
-    color: var(--highlight-color); /* Color destacado para encabezados */
-
-    /* Ocupar todo el alto y ancho del contenedor padre */
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Ocupar todo el alto y ancho del contenedor padre */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
 /* Encabezados */
-.subcol h2, .subcol h3 {
-    color: var(--highlight-color); /* Color destacado para encabezados */
-}
+    .subcol h2, .subcol h3 {
+        color: var(--highlight-color); /* Color destacado para encabezados */
+    }
 
-.subcol h2 {
-    text-align: center;
-    border-bottom: 2px solid var(--highlight-color);
-    padding-bottom: 5px;
-}
+    .subcol h2 {
+        text-align: center;
+        border-bottom: 2px solid var(--highlight-color);
+        padding-bottom: 5px;
+    }
 
-.subcol h3 {
-    text-align: center;
-    font-size: 1.5em;
-}
+    .subcol h3 {
+        text-align: center;
+        font-size: 1.5em;
+    }
 
 /* Texto y listas */
-.subcol h4 {
-    font-size: 1.1em;
-    color: var(--text-light-color);
-}
+    .subcol h4 {
+        font-size: 1.1em;
+        color: var(--text-light-color);
+    }
 
-.subcol p, .subcol ul li {
-    font-size: 1em;
-    color: var(--text-light-color);
-}
+    .subcol p, .subcol ul li {
+        font-size: 1em;
+        color: var(--text-light-color);
+    }
 
-.tecno {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-}
+    .tecno {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
 
-.tecno li {
-    color: var(--text-light-color);
-}
+    .tecno li {
+        color: var(--text-light-color);
+    }
 
 /*Codigo*/
+    .sources {
+        display: flex; 
+        align-items: center; 
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+        
 
-.sources {
-    display: flex; 
-    align-items: center; 
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-    
+    .sources .sourcesTextoIcono {
+        display: flex;
+        align-items: center;
+    }
 
-.sources .sourcesTextoIcono {
-    display: flex;
-    align-items: center;
-}
-
-.sources .sourcesTexto {
-    font-size: 1rem;
-    color: var(--text-light-color);
-}
-
+    .sources .sourcesTexto {
+        font-size: 1rem;
+        color: var(--text-light-color);
+    }
 /*Fin Codigo*/
 
 /*imagenes proyectos*/
@@ -756,10 +645,18 @@
     }
 
     .modal-content {
+        padding: 5px;
+        border-radius: 20px;
+        margin: 10px;
+        width: auto;
+        height: auto;
+        max-width: 80%;
+        max-height: 80%;
         margin: auto;
         display: block;
-        width: 100%; /* Ajusta el tamaño de la imagen */
-        max-width: 800px;
+        object-fit: contain; 
+        justify-content: center;
+        align-items: center;
     }
 
     .close {
@@ -787,6 +684,198 @@
         from {transform: scale(0)}
         to {transform: scale(1)}
     }
+    /*-------------*/
 
 /*fin imagenes proyectos*/
 
+
+/* Diseño responsivo */
+    /* Pantalla Grande */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 3 columnas en pantallas grandes */
+                border: 1px solid #ccc;
+                /* border: 1px solid #ccc;*/
+            }
+
+            .titulo-item {
+                /* Asegura que el menú sea horizontal en pantallas grandes */
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            /* Estilo del contenedor de cartas */
+            #card-stack {
+                position: relative;
+                width: 250px;
+                height: 350px;
+                perspective: 1000px;
+            } /* Estilo común de las cartas */
+
+            .no-background {
+                background-color: transparent; /* Elimina el color de fondo */
+            }
+
+        } 
+    /* fin Pantalla grande */
+
+    /* Pantalla pequeña */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+            justify-content: center; /* Centra el contenido */
+            border: 1px solid #ccc;
+        }
+
+        .subgrid2 {
+            display: grid;
+            grid-template-columns: 1fr; /* Subcolumna apilada en pantallas pequeñas */
+            gap: 1rem;
+        }
+
+        .subgrid3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .subgrid4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 4 columnas */
+            gap: 0.5rem;
+        }
+
+        .subcol p, .subcol ul li {
+            font-size: 0.8rem;
+        }
+
+        .subcol h3 {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .subcol h2 {
+            font-size: 1.2rem;
+        }
+
+        .subcol h4 {
+            font-size: 0.8rem;
+        }
+
+        .titulo h2 {
+            margin: 0; /* Elimina márgenes para una alineación más precisa */
+            font-size: 1.2em; /* Tamaño del texto para el subtítulo */
+            color: #f19203; /* Opcional: Cambia el color del subtítulo si lo deseas */
+        }
+
+        .iconos a {
+            width: 50px;
+            height: 50px;
+        }
+
+        .imagenesProyectos {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(80px, 1fr));
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+        
+        .imagenesProyectos img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo del contenedor de cartas */
+        #card-stack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 160px;
+            height: 250px;
+        } /* Estilo común de las cartas */
+
+        #card-stack .card {
+            flex: 0 1 auto; /* Permite que las cartas ajusten su tamaño automáticamente */
+            width: 100%;
+            height: 100%;
+        }
+
+        .card {
+            width: 80px; /* Reduce el tamaño de las cartas en pantallas pequeñas */
+            height: 120px;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+
+        .grid-container {
+            grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        }
+
+        .typing-effect {
+            font-size: 1.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        }
+
+        .titulo-item {
+            display: flex;
+            justify-content: center; /* Centra el contenido en la dirección horizontal */
+            flex-direction: column; /* Cambia a vertical si deseas apilar elementos */
+            align-items: center; /* Asegura que los elementos dentro estén centrados */
+        }
+
+        .sources .sourcesTexto {
+            font-size: 0.8rem;
+        }
+
+
+        /* Menú principal (vertical) */
+        nav ul:not(.iconos) {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra los elementos del menú verticalmente */
+        }
+
+        nav ul:not(.iconos) li {
+            margin: 1.5rem 0; /* Espacio vertical entre los elementos del menú */
+        }
+
+        nav ul:not(.iconos) li a {
+            display: block;
+            text-align: center;
+            padding: 2px;
+        }
+
+        .small-text {
+            font-size: 14px; /* Tamaño de letra reducido */
+        }
+        
+        .small-text strong {
+            font-size: 12px; /* Tamaño más pequeño para el texto en negrita */
+        }
+
+        #contact h2 {
+            font-size: 1.2rem; /* Tamaño de letra reducido */
+        }
+    
+        #contact a {
+            display: flex;
+            grid-template-columns: 1fr;
+            align-items: center;
+            font-size: 12px;
+        }
+
+    }
+/*Fin de diseño responsivo*/
+
+
+
+    

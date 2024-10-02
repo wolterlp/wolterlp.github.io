@@ -863,6 +863,10 @@
             font-size: 14px; /* Tamaño de letra reducido */
         }
         
+        .small-textFooter {
+            font-size: 10px; /* Tamaño de letra reducido */
+        }
+
         .small-text strong {
             font-size: 12px; /* Tamaño más pequeño para el texto en negrita */
         }

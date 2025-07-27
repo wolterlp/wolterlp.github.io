@@ -8,7 +8,10 @@
     "nav_about": "About",
     "nav_experience": "Experience",
     "nav_projects": "Projects",
+    "nav_certificates": "Certificates",
     "nav_contact": "Contact",
+    "certificates": "Certificates",
+    "certificados_description": "Below are some of the certificates obtained from relevant courses and trainings.",
     "tech_title": "Key Technologies",
     "tech_frontend": "Frontend",
     "tech_backend": "Backend",
@@ -28,7 +31,7 @@
     "exp_iteria_title": "Iteria Forward Thinking",
     "exp_iteria_position": "Web Consultant and Programmer",
     "exp_iteria_period": "August 2017 - July 2019",
-    "exp_iteria_activities": "Development of web applications using Laravel, PHP (MVC), JavaScript and jQuery, Programming in Oracle and use of Pentaho for data analysis.",
+    "exp_iteria_activities": "Development of web applications using Laravel, PHP (MVC), JavaScript, and jQuery. Programming in Oracle and use of Pentaho for data analysis. Through this company, services were provided to clients such as Coomeva, Sinergia, among others.",
     "exp_inverceramicas_title": "Inverceramicas",
     "exp_inverceramicas_position": "Systems Administrator",
     "exp_inverceramicas_period": "January 2017 - August 2017",
@@ -157,5 +160,10 @@
     "light": "Light",
     "dark": "Dark",
     "about_title": "About Me",
-    "about_content": "I am a web developer experienced in PHP, Laravel, Tailwind CSS, MySQL, PostgreSQL, Oracle, Python, Anaconda, and Keras. I specialize in creating efficient and scalable web solutions, as well as data analysis for valuable insights."
+    "about_content": "I am a web developer experienced in PHP, Laravel, Tailwind CSS, MySQL, PostgreSQL, Oracle, Python, Anaconda, and Keras. I specialize in creating efficient and scalable web solutions, as well as data analysis for valuable insights.",
+    "exp_existaya_activities": "Development of business web systems using Laravel and SuiteCRM, including modules for sales, financial reports, product management, and dynamic chart generation. Implementation of efficient queries, API development, and management of MySQL/SQL databases. These solutions were provided to companies such as Unicentro, Omega Security, and Librería Nacional.",
+    "exp_existaya_title": "Experience at Existaya",
+    "exp_existaya_position": "Backend Developer",
+    "exp_existaya_period": "December 2024 - Present"
+
 }

@@ -122,5 +122,11 @@
     "project_numbers": "Reconocimiento de números escritos a mano.",
     "project_numbers_images": "Proyecto 1, Proyecto 2, Proyecto 3, Proyecto 1, Proyecto 2",
     "project_numbers_tech": "Keras, Anaconda, Python, Jupyter Notebook",
-    "source_code": "Código fuente"
+    "source_code": "Código fuente",
+    "nav_certificates": "Certificados",
+    "exp_existaya_title": "Experiencia en Existaya",
+    "exp_existaya_position": "Desarrollador Backend",
+    "exp_existaya_period": "Agosto 2019 - Presente",
+    "exp_existaya_activities": "Desarrollo de sistemas web empresariales con Laravel y SuiteCRM, incluyendo módulos para ventas, reportes financieros, gestión de productos y generación de gráficos dinámicos. Implementación de consultas eficientes, desarrollo de APIs y administración de bases de datos MySQL/SQL. A través de estos desarrollos se prestaron servicios a empresas como Unicentro, Omega y Librería Nacional.",
+    "exp_iteria_activities": "Desarrollo de aplicaciones web utilizando Laravel, PHP (MVC), JavaScript y jQuery. Programación en Oracle y uso de Pentaho para análisis de datos. A través de esta empresa se prestaron servicios a clientes como Coomeva, Sinergia, entre otros."
 }

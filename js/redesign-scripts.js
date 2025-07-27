@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalImg.src = this.src;
                 modalOpen = true;
                 document.body.style.overflow = 'hidden'; // Evita scroll en fondo
+                document.body.classList.add('modal-open'); // Añade clase para estilos
             });
         });
 
@@ -21,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
             modalImg.src = '';
             modalOpen = false;
-            document.body.style.overflow = ''; // Restaura scroll
+            document.body.style.overflow = '';
+            document.body.classList.remove('modal-open');
         });
 
         window.addEventListener('click', function(event) {
@@ -30,16 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalImg.src = '';
                 modalOpen = false;
                 document.body.style.overflow = '';
+                document.body.classList.remove('modal-open');
             }
         });
 
-        // Opcional: cerrar con ESC
+        // Cerrar con ESC
         document.addEventListener('keydown', function(e) {
             if (modalOpen && e.key === 'Escape') {
                 modal.style.display = 'none';
                 modalImg.src = '';
                 modalOpen = false;
                 document.body.style.overflow = '';
+                document.body.classList.remove('modal-open');
             }
         });
     }
@@ -83,13 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Parallax effect for background - optimizado
-    window.addEventListener('scroll', function() {
-        // El pseudo-elemento no se puede seleccionar directamente con querySelector
-        // Se aplica el efecto a través de CSS animations
-    });
+    // Parallax effect for background (CSS only)
 
-    // Add loading animation
+    // Fade in animation
     document.body.style.opacity = '0';
     setTimeout(() => {
         document.body.style.transition = 'opacity 1s ease-in-out';
@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, observerOptions);
 
-        // Observe all sections
         document.querySelectorAll('.col1, .col2').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
@@ -154,7 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const img = document.createElement('img');
             img.src = `storage/certificados/${nombre}`;
             img.alt = `Certificado ${i + 1}`;
-            img.className = 'coverflow-img img-modal';
+            /*img.className = 'coverflow-img img-modal';*/
+            img.className = 'coverflow-img';
             coverflow.appendChild(img);
         });
 
@@ -162,19 +162,23 @@ document.addEventListener('DOMContentLoaded', function() {
         let active = 0;
         function updateCoverflow() {
             imgs.forEach((img, i) => {
-                img.classList.remove('active', 'left', 'right');
+                img.classList.remove('active', 'left', 'right', 'left2', 'right2');
                 if (i === active) {
                     img.classList.add('active');
                 } else if (i === active - 1) {
                     img.classList.add('left');
                 } else if (i === active + 1) {
                     img.classList.add('right');
+                } else if (i === active - 2) {
+                    img.classList.add('left2');
+                } else if (i === active + 2) {
+                    img.classList.add('right2');
                 }
             });
         }
         updateCoverflow();
         coverflow.addEventListener('click', function(e) {
-            if (modalOpen) return; // No navegar si modal está abierto
+            if (modalOpen) return;
             if (!e.target.classList.contains('coverflow-img')) return;
             const idx = Array.from(imgs).indexOf(e.target);
             if (idx !== -1) {
@@ -183,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         document.addEventListener('keydown', function(e) {
-            if (modalOpen) return; // No navegar si modal está abierto
+            if (modalOpen) return;
             if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
             if (e.key === 'ArrowLeft') {
                 active = Math.max(0, active - 1);
@@ -195,6 +199,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Habilita modal SOLO para imagen activa del coverflow
+    if (coverflow) {
+        coverflow.addEventListener('dblclick', function(e) {
+            if (modalOpen) return;
+            const activeImg = coverflow.querySelector('.coverflow-img.active');
+            if (activeImg && e.target === activeImg) {
+                modal.style.display = 'block';
+                modalImg.src = activeImg.src;
+                modalOpen = true;
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
 });
 
 // ========================
@@ -203,9 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadTranslations(lang) {
     try {
         const response = await fetch(`lang/${lang}.json`);
-        if (!response.ok) {
-            throw new Error(`Error al cargar traducciones: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Error al cargar traducciones: ${response.status}`);
         const translations = await response.json();
         applyTranslations(translations);
     } catch (error) {
@@ -214,7 +230,6 @@ async function loadTranslations(lang) {
 }
 
 function applyTranslations(translations) {
-    // Remove duplicate header_name elements (for mobile)
     const headerNameElements = document.querySelectorAll('.typing-effect[data-i18n="header_name"]');
     if (headerNameElements.length > 1) {
         for (let i = 1; i < headerNameElements.length; i++) {
@@ -234,8 +249,6 @@ function applyTranslations(translations) {
 }
 
 function setLanguage(lang) {
-    localStorage.setItem('lang', lang);
-    location.reload();
     const currentTheme = document.body.getAttribute('data-color') || 'dark';
     localStorage.setItem('lang', lang);
     localStorage.setItem('theme', currentTheme);

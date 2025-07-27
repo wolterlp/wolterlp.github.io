@@ -67,6 +67,7 @@
                         <li><a href="#keyTechnologies" class="nav-link" data-i18n="nav_technologies">Tecnologías Clave</a></li>
                         <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Experiencia</a></li>
                         <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Proyectos</a></li>
+                        <li><a href="#certificates" class="nav-link" data-i18n="nav_certificates">Certificados</a></li>
                         <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
                     </ul>
                 </nav>
@@ -112,15 +113,6 @@
                                 </svg>
                             </a>
                         </li>
-                        <!--li-->
-                            <!--a href="/path/to/your/file" download-->
-                            <!--a href="https://www.linkedin.com/in/walter-restrepo-l%C3%B3pez-800789249/" target="_blank">
-                                <svg  height="28px" width="28px" fill="none" stroke-width="2" stroke="currentColor"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                                    <path d="M 30.398438 2 L 7 2 L 7 48 L 43 48 L 43 14.601563 Z M 15 28 L 31 28 L 31 30 L 15 30 Z M 35 36 L 15 36 L 15 34 L 35 34 Z M 35 24 L 15 24 L 15 22 L 35 22 Z M 30 15 L 30 4.398438 L 40.601563 15 Z"></path>
-                                </svg>
-                            </a>
-                        </li-->
-
                     </ul>
                 </nav>
             </div>
@@ -223,6 +215,26 @@
 
                         <div class="subgrid2">
                             <div class="subcol">
+                                <h3 data-i18n="exp_existaya_title">Stpnetworks-Existaya</h3>
+                                <h4 data-i18n="exp_existaya_position">Desarrollador Backend</h4>
+                                <p><strong data-i18n="exp_existaya_period">Diciembre 2024 - Presente</strong></p>
+                                <p><strong data-i18n="exp_activities">Actividades:</strong></p>
+                                <ul>
+                                    <li data-i18n="exp_existaya_activities">
+                                        Desarrollo de sistemas web empresariales con Laravel y SuiteCRM, incluyendo módulos para ventas, reportes financieros, gestión de productos y generación de gráficos dinámicos. Implementación de consultas eficientes, desarrollo de APIs y administración de bases de datos MySQL/SQL. A través de estos desarrollos se prestaron servicios a empresas como Unicentro, Seguridad Omega y Librería Nacional.
+                                    </li>
+                                </ul>
+                                <p><strong data-i18n="exp_technologies">Tecnologías:</strong></p>
+                                <ul class="tecno">
+                                    <li>Laravel</li>
+                                    <li>MySQL</li>
+                                    <li>RESTful APIs Json</li>
+                                    <li>Docker</li>
+                                    <li>PHP</li>
+                                </ul>
+                            </div>
+
+                            <div class="subcol">
                                 <h3 data-i18n="exp_freelancer_title">Experiencia como Freelancer</h3>
                                 <h4 data-i18n="exp_freelancer_position">Desarrollo de Aplicaciones Web Empresariales</h4>
                                 <p><strong data-i18n="exp_freelancer_period">Agosto 2019 - Presente</strong></p>
@@ -263,7 +275,9 @@
                                 <p><strong data-i18n="exp_iteria_period">Agosto 2017 - Julio 2019</strong></p>
                                 <p><strong data-i18n="exp_activities">Actividades:</strong></p>
                                 <ul>
-                                    <li data-i18n="exp_iteria_activities">Desarrollo de aplicaciones web utilizando Laravel, PHP (MVC), JavaScript y jQuery, Programación en Oracle y uso de Pentaho para análisis de datos.</li>
+                                    <li data-i18n="exp_iteria_activities">
+                                        Desarrollo de aplicaciones web utilizando Laravel, PHP (MVC), JavaScript y jQuery. Programación en Oracle y uso de Pentaho para análisis de datos. A través de esta empresa se prestaron servicios a clientes como Coomeva, Sinergia, entre otros.
+                                    </li>
                                 </ul>
                                 <p><strong data-i18n="exp_technologies">Tecnologías:</strong></p>
                                 <ul class="tecno">
@@ -345,12 +359,6 @@
                                     <img src="storage/proyectoAvicola4.jpg" alt="proyectoAvicola4" class="img-proyecto">
                                     <img src="storage/proyectoAvicola5.jpg" alt="proyectoAvicola5" class="img-proyecto">
                                     <img src="storage/proyectoAvicola6.jpg" alt="proyectoAvicola6" class="img-proyecto">
-                                </div>
-
-                                <!-- Modal para mostrar la imagen ampliada -->
-                                <div id="modal" class="modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content" id="imgAmpliada">
                                 </div>
 
                                 <p><strong data-i18n="project_technologies">Tecnologías:</strong></p>
@@ -471,21 +479,21 @@
                 </div>
             
                 <!-- Nueva sección de Certificados -->
-                <!--div class="col2">
-                    <section id="certificados">
+                <div class="col2">
+                    <section id="certificates">
                         <div class="subgrid1">
                             <div class="subcol">
-                                <h2 data-i18n="certificados_title">Certificados</h2>
+                                <h2 data-i18n="certificates">Certificados</h2>
                                 <p data-i18n="certificados_description">A continuación se muestran algunos de los certificados obtenidos en cursos y capacitaciones relevantes.</p>
                             </div>
                         </div>
                         <div class="imagenesCertificados coverflow-container">
-                            <div class="coverflow" id="coverflow"-->
+                            <div class="coverflow" id="coverflow">
                                 <!-- Las imágenes se insertan dinámicamente por JS -->
-                            <!--/div>
+                            </div>
                         </div>
                     </section>
-                </div-->
+                </div>
 
                 <div class="col2"><!-- Contact -->
                     <section id="contact">
@@ -517,12 +525,15 @@
             </div>  
         </main>
 
-    <footer>
-        <div class="footer-content">
-            <p class="small-textFooter" data-i18n="footer_copyright">Derechos reservados © 2024</p>
-        </div>
-    </footer>
-   
-</body>
+        <footer>
+            <div class="footer-content">
+                <p class="small-textFooter" data-i18n="footer_copyright">Derechos reservados © 2024</p>
+            </div>
+        </footer>
+    </body>
 </html>
 
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgAmpliada">
+</div>

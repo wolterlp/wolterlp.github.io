@@ -481,74 +481,149 @@ li::before {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
-    padding: 1rem;
+    margin: 1.5rem 0;
 }
 
-.imagenesProyectos img {
+.img-proyecto {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--card-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.imagenesProyectos img:hover {
+.img-proyecto:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--text-accent);
 }
 
-/* Estilos del modal */
+
+/* Sources */
+.sources {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    padding: 0.8rem 1.2rem;
+    border-radius: 25px;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+    width: fit-content;
+    margin-top: 1rem;
+}
+
+.sources:hover {
+    background: var(--accent-gradient);
+    transform: translate(0, -2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.sourcesTexto {
+    font-weight: 500;
+}
+
+/* Contact */
+.subcolContact {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subcol a {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    word-break: break-word;
+    .subcol a {
+        flex-direction: column;
+        align-items: flex-start;
+        word-break: break-word;
+    }
+}
+
+.subcol a:hover {
+    background: var(--accent-gradient);
+    color: white;
+    transform: translate(0, -2px);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--card-border);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.small-textFooter {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Modal */
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; 
-    z-index: 1000; /* Supera otros elementos */
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Asegúrate de que esté por encima de todo */
     padding-top: 60px; 
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo transparente */
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro más opaco */
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    backdrop-filter: blur(2px);
+    transition: opacity 0.3s ease;
 }
 
+/* Imagen dentro del modal */
 .modal-content {
-    padding: 5px;
-    border-radius: 20px;
-    margin: 10px;
+    max-width: 90vw;
+    max-height: 90vh;
     width: auto;
     height: auto;
-    max-width: 80%;
-    max-height: 80%;
     margin: auto;
     display: block;
-    object-fit: contain; 
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    object-fit: contain;
     justify-content: center;
     align-items: center;
 }
 
+/* Botón cerrar */
 .close {
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 30px;
     color: white;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 10000;
 }
 
-.close:hover,
-.close:focus {
-    color: #f19203;
-    text-decoration: none;
-    cursor: pointer;
+.close:hover {
+    color: var(--text-accent);
+    transform: scale(1.2);
 }
-
-.modal-content {
-    animation: zoom 0.6s;
-}
-
-@keyframes zoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-}
+/*fin modal*/
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -602,7 +677,6 @@ a, button, .nav-link, .col1, .col2, .subcol, .img-proyecto, .sources, .close, .i
 }
 
 /* Coverflow Certificados */
-/*
 .coverflow-container {
     width: 100%;
     display: flex;
@@ -610,7 +684,9 @@ a, button, .nav-link, .col1, .col2, .subcol, .img-proyecto, .sources, .close, .i
     align-items: center;
     perspective: 1200px;
     margin-bottom: 32px;
+    padding-bottom: 60px; /* o el valor que desees */
 }
+
 .coverflow {
     display: flex;
     align-items: center;
@@ -619,21 +695,23 @@ a, button, .nav-link, .col1, .col2, .subcol, .img-proyecto, .sources, .close, .i
     height: 260px;
     overflow: visible;
 }
+
 .coverflow-img {
-    width: 220px;
-    height: 160px;
+    width: 420px;
+    height: 360px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 70%;
     transform: translate(-50%, -50%) scale(0.7);
     opacity: 0.5;
     transition: all 0.4s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
     z-index: 1;
 }
+
 .coverflow-img.active {
     transform: translate(-50%, -50%) scale(1.1);
     opacity: 1;
@@ -642,18 +720,29 @@ a, button, .nav-link, .col1, .col2, .subcol, .img-proyecto, .sources, .close, .i
 }
 .coverflow-img.left {
     transform: translate(-120%, -50%) scale(0.8) rotateY(30deg);
-    opacity: 0.7;
+    opacity: 0.9;
     z-index: 5;
 }
 .coverflow-img.right {
     transform: translate(20%, -50%) scale(0.8) rotateY(-30deg);
-    opacity: 0.7;
+    opacity: 0.9;
     z-index: 5;
 }
-*/
+
+.coverflow-img.left2 {
+    transform: translate(-145%, -50%) scale(0.6) rotateY(10deg);
+    opacity: 0.4;
+    z-index: 3;
+}
+
+.coverflow-img.right2 {
+    transform: translate(40%, -50%) scale(0.6) rotateY(-10deg);
+    opacity: 0.4;
+    z-index: 3;
+}
+/* FIN Coverflow Certificados */
 
 /* Responsive Coverflow */
-/*
 @media (max-width: 800px) {
     .coverflow {
         width: 98vw;
@@ -664,4 +753,3 @@ a, button, .nav-link, .col1, .col2, .subcol, .img-proyecto, .sources, .close, .i
         height: 100px;
     }
 }
-    */

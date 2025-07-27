@@ -137,16 +137,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const coverflow = document.getElementById('coverflow');
     if (coverflow) {
         const certificados = [
-            "analisis-de-codigo-estatico-en-php_page-0001.jpg",
-            "arquitectura-hexagonal_page-0001.jpg",
-            "Certificado clean-code_page-0001.jpg",
-            "Certificado principios-solid-aplicados_page-0001.jpg",
-            "comunicacion-entre-microservicios-event-driven-architecture_page-0001.jpg",
-            "diploma-pro-arquitectura_page-0001.jpg",
-            "diploma-python-data-science_page-0001.jpg",
-            "diploma-redes-neuronales-tensorflow_page-0001.jpg",
-            "testing-introduccion-y-buenas-practicas_page-0001.jpg",
-            "web-performance_page-0001.jpg"
+            "diploma-redes-neuronales-tensorflow_page-0001.jpg",        //13 abril 2025
+            "diploma-pro-arquitectura_page-0001.jpg",                   //14 abril 2025
+            "diploma-python-data-science_page-0001.jpg",                //13 abril 2025
+            "arquitectura-hexagonal_page-0001.jpg",                     //01 sep 2024
+            "analisis-de-codigo-estatico-en-php_page-0001.jpg",         //25 agosto 2024
+            "Certificado clean-code_page-0001.jpg",                     //30 jul 2024
+            "Certificado principios-solid-aplicados_page-0001.jpg",     //30 jul 2024
+            "comunicacion-entre-microservicios-event-driven-architecture_page-0001.jpg", //11 sep 2024
+            "web-performance_page-0001.jpg" ,                           //5 sep 2024           
+            "testing-introduccion-y-buenas-practicas_page-0001.jpg",    //4 sep 2024            
         ];
         coverflow.innerHTML = '';
         certificados.forEach((nombre, i) => {
@@ -213,7 +213,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
 });
+
 
 // ========================
 // Traducción

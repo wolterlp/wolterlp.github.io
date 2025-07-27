@@ -749,7 +749,7 @@ a, button, .nav-link, .col1, .col2, .subcol, .img-proyecto, .sources, .close, .i
         height: 180px;
     }
     .coverflow-img {
-        width: 140px;
-        height: 100px;
+         width: 260px;
+        height: 180px;
     }
 }
